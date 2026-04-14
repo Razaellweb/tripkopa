@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { WhatsAppMockup } from './WhatsAppMockup';
-import { MessageCircle, ArrowRight, ShieldCheck, CreditCard, Globe } from 'lucide-react';
+import { ArrowRight, ShieldCheck, CreditCard, Globe } from 'lucide-react';
 import { toast } from 'sonner';
 
 export function Hero() {
@@ -66,22 +66,28 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-black/5 w-full"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-black/10 w-full"
           >
-            <div className="space-y-1">
-              <CreditCard size={20} className="text-emerald-600" />
-              <h4 className="text-sm font-semibold text-[#1a1c20]">Installments</h4>
-              <p className="text-xs text-[#54656f]">Pay in 4 easy parts</p>
+            <div className="rounded-2xl border border-emerald-500/15 bg-white/85 backdrop-blur-sm px-4 py-4 shadow-sm shadow-emerald-900/5 space-y-2">
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+                <CreditCard size={24} className="text-emerald-700" />
+              </div>
+              <h4 className="text-base font-bold text-[#1a1c20]">Installments</h4>
+              <p className="text-sm text-[#44515a] font-medium">Pay in 4 easy parts</p>
             </div>
-            <div className="space-y-1">
-              <Globe size={20} className="text-emerald-600" />
-              <h4 className="text-sm font-semibold text-[#1a1c20]">Global Reach</h4>
-              <p className="text-xs text-[#54656f]">All major airlines</p>
+            <div className="rounded-2xl border border-emerald-500/15 bg-white/85 backdrop-blur-sm px-4 py-4 shadow-sm shadow-emerald-900/5 space-y-2">
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+                <Globe size={24} className="text-emerald-700" />
+              </div>
+              <h4 className="text-base font-bold text-[#1a1c20]">Global Reach</h4>
+              <p className="text-sm text-[#44515a] font-medium">All major airlines</p>
             </div>
-            <div className="space-y-1">
-              <ShieldCheck size={20} className="text-emerald-600" />
-              <h4 className="text-sm font-semibold text-[#1a1c20]">Secure</h4>
-              <p className="text-xs text-[#54656f]">Encrypted payments</p>
+            <div className="rounded-2xl border border-emerald-500/15 bg-white/85 backdrop-blur-sm px-4 py-4 shadow-sm shadow-emerald-900/5 space-y-2">
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+                <ShieldCheck size={24} className="text-emerald-700" />
+              </div>
+              <h4 className="text-base font-bold text-[#1a1c20]">Secure</h4>
+              <p className="text-sm text-[#44515a] font-medium">Encrypted payments</p>
             </div>
           </motion.div>
         </div>

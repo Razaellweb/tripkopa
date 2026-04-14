@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
-import { Check, CheckCheck, Send, Phone, Video, MoreVertical, Paperclip, Smile, Mic } from 'lucide-react';
+import { Check, CheckCheck, Phone, Video, MoreVertical, Paperclip, Smile, Mic } from 'lucide-react';
 import { toast } from 'sonner';
 
 interface Message {
@@ -83,6 +83,66 @@ const messages: Message[] = [
 ];
 
 export function WhatsAppMockup() {
+  const chatAreaRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const chatArea = chatAreaRef.current;
+    if (!chatArea) return;
+
+    let rafId: number | null = null;
+    let timeoutId: number | null = null;
+    let direction = 1;
+    let lastTime = 0;
+    let pauseUntil = 0;
+    const speedPxPerMs = 0.022;
+    const edgePauseMs = 1200;
+
+    const step = (currentTime: number) => {
+      if (!chatArea.isConnected) return;
+
+      if (!lastTime) lastTime = currentTime;
+      const delta = currentTime - lastTime;
+      lastTime = currentTime;
+
+      const maxScroll = chatArea.scrollHeight - chatArea.clientHeight;
+      if (maxScroll <= 0) {
+        rafId = window.requestAnimationFrame(step);
+        return;
+      }
+
+      if (currentTime < pauseUntil) {
+        rafId = window.requestAnimationFrame(step);
+        return;
+      }
+
+      const nextScrollTop = chatArea.scrollTop + direction * speedPxPerMs * delta;
+
+      if (nextScrollTop >= maxScroll) {
+        chatArea.scrollTop = maxScroll;
+        direction = -1;
+        pauseUntil = currentTime + edgePauseMs;
+      } else if (nextScrollTop <= 0) {
+        chatArea.scrollTop = 0;
+        direction = 1;
+        pauseUntil = currentTime + edgePauseMs;
+      } else {
+        chatArea.scrollTop = nextScrollTop;
+      }
+
+      rafId = window.requestAnimationFrame(step);
+    };
+
+    timeoutId = window.setTimeout(() => {
+      lastTime = performance.now();
+      rafId = window.requestAnimationFrame(step);
+    }, 1600);
+
+    return () => {
+      if (timeoutId) window.clearTimeout(timeoutId);
+      if (rafId) window.cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   return (
     <div className="relative w-full max-w-[380px] h-[640px] bg-[#efeae2] rounded-[40px] border-[8px] border-[#f0f2f5] shadow-2xl overflow-hidden flex flex-col font-sans">
       {/* Header */}
@@ -102,7 +162,7 @@ export function WhatsAppMockup() {
       </div>
 
       {/* Chat Area */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#efeae2] scrollbar-hide">
+      <div ref={chatAreaRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-[#efeae2] scrollbar-hide">
         {messages.map((msg, index) => (
           <motion.div
             key={msg.id}

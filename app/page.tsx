@@ -4,7 +4,7 @@ import React from 'react';
 import { Hero } from '@/components/Hero';
 import { Navbar } from '@/components/Navbar';
 import { motion } from 'motion/react';
-import { MessageCircle, Plane, CreditCard, CheckCircle2, Wallet, Zap, Calendar, ShieldCheck } from 'lucide-react';
+import { Plane, CreditCard, CheckCircle2, Wallet, Zap, Calendar, ShieldCheck } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-[#fcfcfc] text-[#1a1c20] overflow-x-hidden">
+    <main className="min-h-screen bg-[#f4fbf7] text-[#1a1c20] overflow-x-hidden">
       <Navbar />
       {/* Hero Section */}
       <Hero />
@@ -85,7 +85,7 @@ export default function Home() {
       </section>
 
       {/* Why Choose Tripkopa Section */}
-      <section className="py-24 px-6 bg-[#fcfcfc]">
+      <section className="py-24 px-6 bg-[#f1f9f4]">
         <div className="container max-w-7xl mx-auto">
           <div className="text-center mb-16 space-y-4">
             <motion.h2
@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* Trust Section */}
-      <section id="airlines" className="py-24 px-6 bg-[#fcfcfc] border-t border-black/5 scroll-mt-20">
+      <section id="airlines" className="py-24 px-6 bg-[#edf8f2] border-t border-emerald-900/10 scroll-mt-20">
         <div className="container max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-xl space-y-6">
             <h2 className="text-3xl md:text-4xl font-heading font-bold tracking-tight text-[#1a1c20]">
@@ -186,7 +186,8 @@ export default function Home() {
                 { name: "Arik Air", color: "text-red-700" },
                 { name: "Dana Air", color: "text-blue-700" },
                 { name: "United Nigeria", color: "text-blue-900" },
-                { name: "ValueJet", color: "text-orange-600" }
+                { name: "ValueJet", color: "text-orange-600" },
+                { name: "Travel Start", color: "text-white", featured: true }
               ].map((airline, idx) => (
                 <motion.div
                   key={idx}
@@ -194,9 +195,17 @@ export default function Home() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  className="bg-white border border-black/5 rounded-2xl p-6 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow group"
+                  className={`border rounded-2xl p-6 flex items-center justify-center transition-shadow ${
+                    airline.featured
+                      ? 'col-span-2 bg-emerald-600 border-emerald-700 shadow-lg shadow-emerald-600/25'
+                      : 'bg-white border-black/5 shadow-sm hover:shadow-md group'
+                  }`}
                 >
-                  <span className={`font-heading font-bold text-lg tracking-tighter ${airline.color} opacity-60 group-hover:opacity-100 transition-opacity`}>
+                  <span className={`font-heading font-bold tracking-tighter ${
+                    airline.featured
+                      ? 'text-2xl text-white'
+                      : `${airline.color} text-lg opacity-60 group-hover:opacity-100 transition-opacity`
+                  }`}>
                     {airline.name}
                   </span>
                 </motion.div>
@@ -213,7 +222,7 @@ export default function Home() {
       {/* Final CTA */}
       <section id="support" className="py-32 px-6 text-center relative overflow-hidden scroll-mt-20">
         <div className="absolute inset-0 bg-grain pointer-events-none opacity-5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-emerald-500/5 blur-[100px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] h-[460px] bg-emerald-500/12 blur-[110px] rounded-full pointer-events-none" />
         
         <div className="container max-w-3xl mx-auto relative z-10 space-y-8">
           <h2 className="text-4xl md:text-6xl font-heading font-bold tracking-tight text-[#1a1c20]">
@@ -235,8 +244,9 @@ export default function Home() {
       </section>
 
       {/* Minimal Footer */}
-      <footer className="py-12 px-6 border-t border-black/5 text-center text-[#54656f] text-sm">
-        <div className="container max-w-7xl mx-auto space-y-6">
+      <footer className="relative overflow-hidden py-12 px-6 border-t border-emerald-900/10 text-center text-[#42545e] text-sm bg-gradient-to-b from-[#e8f6ee] via-[#e9f7ef] to-[#ddf1e7]">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_15%,rgba(16,185,129,0.22),transparent_42%),radial-gradient(circle_at_85%_85%,rgba(5,150,105,0.18),transparent_46%)]" />
+        <div className="container max-w-7xl mx-auto space-y-6 relative z-10">
           <div className="flex items-center justify-center gap-2">
             <div className="w-9 h-9 bg-emerald-600 rounded-lg flex items-center justify-center text-white">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
