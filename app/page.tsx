@@ -211,10 +211,10 @@ export default function Home() {
                   </span>
                 </motion.div>
               ))}
-              <div className="col-span-2 mt-4 p-6 rounded-2xl bg-emerald-600 text-white text-center shadow-lg shadow-emerald-600/20">
+              {/* <div className="col-span-2 mt-4 p-6 rounded-2xl bg-emerald-600 text-white text-center shadow-lg shadow-emerald-600/20">
                 <div className="text-3xl font-bold">10k+</div>
                 <div className="text-emerald-100 text-sm font-medium">Happy Travelers</div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
