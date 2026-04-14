@@ -66,9 +66,6 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <a href="#how-it-works" className="text-sm font-semibold text-[#54656f] hover:text-emerald-600 transition-colors">How it works</a>
-          <a href="#airlines" className="text-sm font-semibold text-[#54656f] hover:text-emerald-600 transition-colors">Airlines</a>
-          <a href="#support" className="text-sm font-semibold text-[#54656f] hover:text-emerald-600 transition-colors">Support</a>
           <button 
             onClick={handleLaunchSoon}
             className="flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-full font-bold text-sm transition-all shadow-md shadow-emerald-600/10 active:scale-95"
@@ -99,27 +96,6 @@ export function Navbar() {
             className="md:hidden bg-white border-b border-black/5 overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
-              <a 
-                href="#how-it-works" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-semibold text-[#1a1c20]"
-              >
-                How it works
-              </a>
-              <a 
-                href="#airlines" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-semibold text-[#1a1c20]"
-              >
-                Airlines
-              </a>
-              <a 
-                href="#support" 
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-semibold text-[#1a1c20]"
-              >
-                Support
-              </a>
               <button 
                 onClick={() => {
                   setIsMobileMenuOpen(false);
