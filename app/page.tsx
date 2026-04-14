@@ -181,13 +181,13 @@ export default function Home() {
             <div className="absolute inset-0 bg-emerald-500/5 blur-[80px] rounded-full pointer-events-none" />
             <div className="relative grid grid-cols-2 gap-4">
               {[
+                { name: "Travel Start", color: "text-emerald-700", featured: true },
                 { name: "Air Peace", color: "text-blue-900" },
                 { name: "Ibom Air", color: "text-emerald-800" },
                 { name: "Arik Air", color: "text-red-700" },
                 { name: "Dana Air", color: "text-blue-700" },
                 { name: "United Nigeria", color: "text-blue-900" },
-                { name: "ValueJet", color: "text-orange-600" },
-                { name: "Travel Start", color: "text-white", featured: true }
+                { name: "ValueJet", color: "text-orange-600" }
               ].map((airline, idx) => (
                 <motion.div
                   key={idx}
@@ -197,13 +197,13 @@ export default function Home() {
                   transition={{ delay: idx * 0.1 }}
                   className={`border rounded-2xl p-6 flex items-center justify-center transition-shadow ${
                     airline.featured
-                      ? 'col-span-2 bg-emerald-600 border-emerald-700 shadow-lg shadow-emerald-600/25'
+                      ? 'col-span-2 bg-white border-emerald-300 shadow-lg shadow-emerald-700/10'
                       : 'bg-white border-black/5 shadow-sm hover:shadow-md group'
                   }`}
                 >
                   <span className={`font-heading font-bold tracking-tighter ${
                     airline.featured
-                      ? 'text-2xl text-white'
+                      ? 'text-2xl text-emerald-700'
                       : `${airline.color} text-lg opacity-60 group-hover:opacity-100 transition-opacity`
                   }`}>
                     {airline.name}
@@ -263,11 +263,15 @@ export default function Home() {
               Trip<span className="text-emerald-600">kopa</span>
             </span>
           </div>
+          <p className="font-medium text-[#2e444f]">Making travel possible, one payment at a time</p>
+          <p>
+            Contact: <a href="mailto:support@tripkopa.com" className="font-semibold text-emerald-800 hover:text-emerald-900 transition-colors">support@tripkopa.com</a>
+          </p>
           <p>© 2026 Tripkopa. All rights reserved.</p>
           <div className="flex justify-center gap-6">
             <a href="#" className="hover:text-[#1a1c20] transition-colors">Privacy</a>
             <a href="#" className="hover:text-[#1a1c20] transition-colors">Terms</a>
-            <a href="#" className="hover:text-[#1a1c20] transition-colors">Contact</a>
+            <a href="mailto:support@tripkopa.com" className="hover:text-[#1a1c20] transition-colors">Contact</a>
           </div>
         </div>
       </footer>

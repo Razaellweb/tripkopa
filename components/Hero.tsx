@@ -68,26 +68,32 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.5 }}
             className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 border-t border-black/10 w-full"
           >
-            <div className="rounded-2xl border border-emerald-500/15 bg-white/85 backdrop-blur-sm px-4 py-4 shadow-sm shadow-emerald-900/5 space-y-2">
-              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+            <div className="flex items-start gap-3 py-2">
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0">
                 <CreditCard size={24} className="text-emerald-700" />
               </div>
-              <h4 className="text-base font-bold text-[#1a1c20]">Installments</h4>
-              <p className="text-sm text-[#44515a] font-medium">Pay in 4 easy parts</p>
+              <div className="space-y-1">
+                <h4 className="text-base font-bold text-[#1a1c20]">Installments</h4>
+                <p className="text-sm text-[#44515a] font-medium">Pay in 4 easy parts</p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-emerald-500/15 bg-white/85 backdrop-blur-sm px-4 py-4 shadow-sm shadow-emerald-900/5 space-y-2">
-              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+            <div className="flex items-start gap-3 py-2">
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0">
                 <Globe size={24} className="text-emerald-700" />
               </div>
-              <h4 className="text-base font-bold text-[#1a1c20]">Global Reach</h4>
-              <p className="text-sm text-[#44515a] font-medium">All major airlines</p>
+              <div className="space-y-1">
+                <h4 className="text-base font-bold text-[#1a1c20]">Global Reach</h4>
+                <p className="text-sm text-[#44515a] font-medium">All major airlines</p>
+              </div>
             </div>
-            <div className="rounded-2xl border border-emerald-500/15 bg-white/85 backdrop-blur-sm px-4 py-4 shadow-sm shadow-emerald-900/5 space-y-2">
-              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+            <div className="flex items-start gap-3 py-2">
+              <div className="w-11 h-11 rounded-xl bg-emerald-500/15 flex items-center justify-center shrink-0">
                 <ShieldCheck size={24} className="text-emerald-700" />
               </div>
-              <h4 className="text-base font-bold text-[#1a1c20]">Secure</h4>
-              <p className="text-sm text-[#44515a] font-medium">Encrypted payments</p>
+              <div className="space-y-1">
+                <h4 className="text-base font-bold text-[#1a1c20]">Secure</h4>
+                <p className="text-sm text-[#44515a] font-medium">Encrypted payments</p>
+              </div>
             </div>
           </motion.div>
         </div>
